@@ -16,13 +16,21 @@ const TestimonialsSlider = () => {
   };
 
   return (
-    <div className="bg-blue-200 grid grid-cols-[6fr_5fr]">
+    <div className="grid grid-cols-[6fr_5fr]">
       {/* Quote */}
-      <blockquote className="relative z-10 grid grid-rows-[1fr_auto_1fr] mr-[-4ch] font-light">
+      <blockquote
+        className="relative z-10 grid grid-rows-[1fr_auto_1fr]
+      bg-[url(/pattern-quotes.svg)] bg-no-repeat bg-position-[left_20%_top_25%]
+      mr-[-4ch] font-light"
+      >
         <span className="row-start-2">{testimonials[index].text}</span>
-        <footer className="row-start-3 flex gap-2">
-          <cite>{testimonials[index].name}</cite>
-          <span>{testimonials[index].title}</span>
+        <footer className="row-start-3 flex gap-2 text-lg">
+          <cite className="font-bold not-italic">
+            {testimonials[index].name}
+          </cite>
+          <span className="font-medium text-gray-400">
+            {testimonials[index].title}
+          </span>
         </footer>
       </blockquote>
 
@@ -33,15 +41,15 @@ const TestimonialsSlider = () => {
           alt={`Picture of ${testimonials[index].name}`}
           width={540}
           height={540}
-          className="w-full
-          duration-1000 animate-slide"
+          className="w-full 
+          duration-1000 animate-slide shadow-[15px_15px_45px_1px] shadow-black/30"
         />
 
         {/* Control Buttons */}
-        <div className="absolute bg-white flex gap-2 rounded-full">
+        <div className="absolute -translate-y-1/2 left-12 bg-white flex gap-2 rounded-full">
           <button
             onClick={prevSlide}
-            className="bg-white pl-4 pr-6 py-3 rounded-l-full cursor-pointer"
+            className="bg-white pl-4 pr-4 py-3 rounded-l-full cursor-pointer"
           >
             <Image
               src={"/icon-prev.svg"}
@@ -52,7 +60,7 @@ const TestimonialsSlider = () => {
           </button>
           <button
             onClick={nextSlide}
-            className="bg-white pl-6 pr-4 py-3 rounded-r-full cursor-pointer"
+            className="bg-white pl-4 pr-4 py-3 rounded-r-full cursor-pointer"
           >
             <Image
               src={"/icon-next.svg"}
