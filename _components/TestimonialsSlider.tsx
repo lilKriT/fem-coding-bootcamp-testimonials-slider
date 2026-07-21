@@ -24,7 +24,7 @@ const TestimonialsSlider = () => {
       mr-[-4ch] font-light"
       >
         <span className="row-start-2">{testimonials[index].text}</span>
-        <footer className="row-start-3 flex gap-2 text-lg">
+        <footer className="row-start-3 flex gap-2 text-lg mt-8">
           <cite className="font-bold not-italic">
             {testimonials[index].name}
           </cite>
@@ -46,10 +46,11 @@ const TestimonialsSlider = () => {
         />
 
         {/* Control Buttons */}
-        <div className="absolute -translate-y-1/2 left-12 bg-white flex gap-2 rounded-full">
+        <div className="absolute z-10 -translate-y-1/2 left-12 bg-white flex gap-2 rounded-full">
           <button
             onClick={prevSlide}
-            className="bg-white pl-4 pr-4 py-3 rounded-l-full cursor-pointer"
+            className="btn pl-4 pr-4 py-3 rounded-l-full  
+            "
           >
             <Image
               src={"/icon-prev.svg"}
@@ -60,7 +61,7 @@ const TestimonialsSlider = () => {
           </button>
           <button
             onClick={nextSlide}
-            className="bg-white pl-4 pr-4 py-3 rounded-r-full cursor-pointer"
+            className="btn pl-4 pr-4 py-3 rounded-r-full"
           >
             <Image
               src={"/icon-next.svg"}

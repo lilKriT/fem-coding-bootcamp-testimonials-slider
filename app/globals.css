@@ -33,3 +33,7 @@ body {
 * {
   /* @apply outline outline-red-200; */
 }
+
+.btn {
+  @apply bg-white cursor-pointer hover:bg-gray-400 active:scale-110 motion-safe:duration-150 ease-in-out;
+}
