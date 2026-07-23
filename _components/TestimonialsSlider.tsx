@@ -38,30 +38,7 @@ const TestimonialsSlider = () => {
   };
 
   return (
-    <div className="grid grid-cols-[6fr_5fr]">
-      {/* Quote */}
-      <blockquote
-        className="relative z-10 grid grid-rows-[1fr_auto_1fr]
-      bg-[url(/pattern-quotes.svg)] bg-no-repeat bg-position-[left_20%_top_25%]
-      mr-[-4ch] font-light"
-      >
-        <span
-          className={`${phase === "entering" && "animate-enter"} ${phase === "leaving" && "animate-leave"} row-start-2`}
-        >
-          {testimonials[index].text}
-        </span>
-        <footer
-          className={`${phase === "entering" && "animate-slideright"} ${phase === "leaving" && "animate-slideleft"} row-start-3 flex gap-2 text-lg mt-8`}
-        >
-          <cite className="font-bold not-italic">
-            {testimonials[index].name}
-          </cite>
-          <span className="font-medium text-gray-400">
-            {testimonials[index].title}
-          </span>
-        </footer>
-      </blockquote>
-
+    <div className="grid grid-rows-[repeat(2,auto)] md:grid-cols-[6fr_5fr] gap-24 md:gap-0">
       {/* Image */}
       <div className="relative">
         <div
@@ -72,15 +49,15 @@ const TestimonialsSlider = () => {
             alt={`Picture of ${testimonials[index].name}`}
             width={540}
             height={540}
-            className={`w-full animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[15px_25px_45px_5px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
+            className={`w-11/12 md:w-full mx-auto animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[15px_25px_45px_5px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
           />
         </div>
 
         {/* Control Buttons */}
-        <div className="absolute z-10 -translate-y-1/2 left-12 bg-white flex gap-2 rounded-full">
+        <div className="absolute z-10 -translate-y-1/2 left-1/2 -translate-x-1/2 md:left-12 md:translate-x-0 bg-white flex gap-2 rounded-full">
           <button
             onClick={() => slide(prev)}
-            className="btn pl-4 pr-4 py-3 rounded-l-full  
+            className="btn px-3 md:px-4 py-2 md:py-3 rounded-l-full  
             "
           >
             <Image
@@ -92,7 +69,7 @@ const TestimonialsSlider = () => {
           </button>
           <button
             onClick={() => slide(next)}
-            className="btn pl-4 pr-4 py-3 rounded-r-full"
+            className="btn px-3 md:px-4py-2 md:py-3 rounded-r-full"
           >
             <Image
               src={"/icon-next.svg"}
@@ -103,6 +80,29 @@ const TestimonialsSlider = () => {
           </button>
         </div>
       </div>
+
+      {/* Quote */}
+      <blockquote
+        className="relative z-10 grid md:grid-rows-[1fr_auto_1fr]
+      bg-[url(/pattern-quotes.svg)] bg-no-repeat bg-position-[left_20%_top_25%]
+      md:mr-[-4ch] font-light text-[clamp(1.25rem,5vw,2rem)] text-center md:text-start"
+      >
+        <span
+          className={`${phase === "entering" && "animate-enter"} ${phase === "leaving" && "animate-leave"} row-start-2`}
+        >
+          {testimonials[index].text}
+        </span>
+        <footer
+          className={`${phase === "entering" && "animate-slideright"} ${phase === "leaving" && "animate-slideleft"} row-start-3 flex flex-col md:flex-row md:gap-2 text-[clamp(0.975rem,2vw,1.125rem)] mt-8`}
+        >
+          <cite className="font-bold not-italic">
+            {testimonials[index].name}
+          </cite>
+          <span className="font-medium text-gray-400">
+            {testimonials[index].title}
+          </span>
+        </footer>
+      </blockquote>
     </div>
   );
 };

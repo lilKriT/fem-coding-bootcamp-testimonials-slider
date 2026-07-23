@@ -7,7 +7,7 @@
 @theme inline {
   /* Font */
   --font-sans: var(--font-inter-sans);
-  --font-base: 2rem;
+  --text-base: 2rem;
 
   /* Colors */
   --color-blue-950: hsl(240, 38%, 20%);
@@ -45,6 +45,7 @@
 
   @keyframes fadeIn {
     0% {
+      filter: blur(50px);
       opacity: 0;
     }
     100% {
@@ -57,6 +58,7 @@
       opacity: 1;
     }
     100% {
+      filter: blur(50px);
       opacity: 0;
     }
   }
@@ -89,11 +91,11 @@ body {
   color: var(--color-blue-950);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: var(--font-base);
+  font-size: var(--text-base);
 }
 
 * {
-  /* @apply outline outline-red-200; */
+  @apply outline outline-red-200;
 }
 
 .btn {
