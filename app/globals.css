@@ -95,7 +95,7 @@ body {
 }
 
 * {
-  @apply outline outline-red-200;
+  /* @apply outline outline-red-200; */
 }
 
 .btn {
