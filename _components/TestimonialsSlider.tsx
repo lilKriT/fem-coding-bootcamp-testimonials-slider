@@ -72,7 +72,7 @@ const TestimonialsSlider = () => {
             alt={`Picture of ${testimonials[index].name}`}
             width={540}
             height={540}
-            className={`w-full animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[35px_35px_45px_1px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
+            className={`w-full animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[15px_25px_45px_5px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
           />
         </div>
 
