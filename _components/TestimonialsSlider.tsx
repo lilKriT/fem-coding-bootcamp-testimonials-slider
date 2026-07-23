@@ -38,62 +38,64 @@ const TestimonialsSlider = () => {
   };
 
   return (
-    <div className="grid grid-rows-[repeat(2,auto)] md:grid-cols-[6fr_5fr] gap-24 md:gap-0">
+    <div className="grid grid-rows-[repeat(2,auto)] sm:grid-cols-[6fr_5fr] gap-8 sm:gap-0">
       {/* Image */}
-      <div className="relative">
+      <div className="relative sm:order-1">
         <div
-          className={`${phase === "entering" && "animate-fadein"} ${phase === "leaving" && "animate-fadeout"}`}
+          className={`${phase === "entering" && "motion-safe:animate-fadein"} ${phase === "leaving" && "motion-safe:animate-fadeout"}`}
         >
           <Image
             src={testimonials[index].imageURL}
             alt={`Picture of ${testimonials[index].name}`}
             width={540}
             height={540}
-            className={`w-11/12 md:w-full mx-auto animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[15px_25px_45px_5px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
+            className={`w-11/12 sm:w-full mx-auto animate-slide shadow-[15px_15px_45px_1px] hover:shadow-[15px_25px_45px_5px] shadow-black/30 hover:rounded-xl motion-safe:duration-300 ease-in-out`}
           />
-        </div>
 
-        {/* Control Buttons */}
-        <div className="absolute z-10 -translate-y-1/2 left-1/2 -translate-x-1/2 md:left-12 md:translate-x-0 bg-white flex gap-2 rounded-full">
-          <button
-            onClick={() => slide(prev)}
-            className="btn px-3 md:px-4 py-2 md:py-3 rounded-l-full  
+          {/* Control Buttons */}
+          <div className="absolute z-10 -translate-y-1/2 left-1/2 -translate-x-1/2 sm:left-12 sm:translate-x-0 bg-white flex gap-2 rounded-full">
+            <button
+              onClick={() => slide(prev)}
+              className="btn px-3 sm:px-4 py-2 sm:py-3 rounded-l-full  
             "
-          >
-            <Image
-              src={"/icon-prev.svg"}
-              alt="Previous slide"
-              width={12}
-              height={18}
-            />
-          </button>
-          <button
-            onClick={() => slide(next)}
-            className="btn px-3 md:px-4py-2 md:py-3 rounded-r-full"
-          >
-            <Image
-              src={"/icon-next.svg"}
-              alt="Next slide"
-              width={13}
-              height={18}
-            />
-          </button>
+            >
+              <Image
+                src={"/icon-prev.svg"}
+                alt="Previous slide"
+                width={12}
+                height={18}
+              />
+            </button>
+            <button
+              onClick={() => slide(next)}
+              className="btn px-3 sm:px-4py-2 sm:py-3 rounded-r-full"
+            >
+              <Image
+                src={"/icon-next.svg"}
+                alt="Next slide"
+                width={13}
+                height={18}
+              />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Quote */}
       <blockquote
-        className="relative z-10 grid md:grid-rows-[1fr_auto_1fr]
-      bg-[url(/pattern-quotes.svg)] bg-no-repeat bg-position-[left_20%_top_25%]
-      md:mr-[-4ch] font-light text-[clamp(1.25rem,5vw,2rem)] text-center md:text-start"
+        className="relative z-10 grid sm:grid-rows-[1fr_auto_1fr]
+      bg-[url(/pattern-quotes.svg)] bg-no-repeat 
+      bg-position-[center_top_3rem] sm:bg-position-[left_20%_top_25%]
+      bg-size-[25%_auto] sm:bg-auto 
+      sm:mr-[-4ch] font-light text-[clamp(1.25rem,3vw,2rem)] text-center sm:text-start py-18 sm:py-0"
       >
         <span
-          className={`${phase === "entering" && "animate-enter"} ${phase === "leaving" && "animate-leave"} row-start-2`}
+          className={`${phase === "entering" && "motion-safe:animate-enter"} ${phase === "leaving" && "motion-safe:animate-leave"} row-start-2`}
         >
           {testimonials[index].text}
         </span>
         <footer
-          className={`${phase === "entering" && "animate-slideright"} ${phase === "leaving" && "animate-slideleft"} row-start-3 flex flex-col md:flex-row md:gap-2 text-[clamp(0.975rem,2vw,1.125rem)] mt-8`}
+          className={`${phase === "entering" && "motion-safe:animate-slideright"} ${phase === "leaving" && "motion-safe:animate-slideleft"} row-start-3 flex flex-col sm:flex-row sm:gap-2 text-[clamp(0.975rem,2vw,1.125rem)] mt-4 sm:mt-8`}
         >
           <cite className="font-bold not-italic">
             {testimonials[index].name}
